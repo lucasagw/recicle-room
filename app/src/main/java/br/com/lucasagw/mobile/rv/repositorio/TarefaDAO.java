@@ -1,4 +1,4 @@
-package br.com.lucasagw.mobile.rv;
+package br.com.lucasagw.mobile.rv.repositorio;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;
+
+import br.com.lucasagw.mobile.rv.model.Tarefa;
 
 @Dao
 public interface TarefaDAO {

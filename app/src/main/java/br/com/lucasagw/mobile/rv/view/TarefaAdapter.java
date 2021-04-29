@@ -1,5 +1,4 @@
-package br.com.lucasagw.mobile.rv;
-import android.content.Context;
+package br.com.lucasagw.mobile.rv.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import br.com.lucasagw.mobile.rv.R;
+import br.com.lucasagw.mobile.rv.model.Tarefa;
 
 public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaHolder> {
 

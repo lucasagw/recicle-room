@@ -1,18 +1,18 @@
-package br.com.lucasagw.mobile.rv;
+package br.com.lucasagw.mobile.rv.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
-import android.Manifest;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.lucasagw.mobile.rv.R;
+import br.com.lucasagw.mobile.rv.model.Tarefa;
+import br.com.lucasagw.mobile.rv.repositorio.BancoDados;
 
 public class MainActivity extends AppCompatActivity {
 

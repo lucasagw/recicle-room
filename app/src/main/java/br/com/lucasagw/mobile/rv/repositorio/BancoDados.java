@@ -1,10 +1,12 @@
-package br.com.lucasagw.mobile.rv;
+package br.com.lucasagw.mobile.rv.repositorio;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import br.com.lucasagw.mobile.rv.model.Tarefa;
 
 @Database(
         entities = {Tarefa.class},
