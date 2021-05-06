@@ -20,7 +20,7 @@ public abstract class BancoDados extends RoomDatabase {
 
     public static BancoDados getInstance(Context context) {
         if (instancia == null) {
-            Room.databaseBuilder(context, BancoDados.class, "banco")
+            instancia = Room.databaseBuilder(context, BancoDados.class, "banco")
                     .allowMainThreadQueries() //permitir que as queries rodem na thread main.
                     .build();
         }
