@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.main_lista_tarefas);
-        tarefaAdapter = new TarefaAdapter(new TarefaAdapter.ContatoDiff());
+        tarefaAdapter = new TarefaAdapter(new TarefaAdapter.TarefaDiff());
         recyclerView.setAdapter(tarefaAdapter);
         //recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));

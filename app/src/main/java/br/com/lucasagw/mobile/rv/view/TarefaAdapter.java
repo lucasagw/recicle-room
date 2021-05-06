@@ -54,7 +54,7 @@ public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolde
         }
     }
 
-    static class ContatoDiff extends DiffUtil.ItemCallback<Tarefa> {
+    static class TarefaDiff extends DiffUtil.ItemCallback<Tarefa> {
 
         @Override
         public boolean areItemsTheSame(@NonNull Tarefa oldItem, @NonNull Tarefa newItem) {
