@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
                 .get(TarefaViewModel.class);
 
-        viewModel.getContatos().observe(this, tarefas -> {
+        viewModel.getTarefas().observe(this, tarefas -> {
             tarefaAdapter.submitList(tarefas);
         });
 

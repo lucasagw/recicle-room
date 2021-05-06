@@ -21,7 +21,7 @@ public class TarefaViewModel extends AndroidViewModel {
         tarefas = repositorio.getAllContatos();
     }
 
-    public LiveData<List<Tarefa>> getContatos() {
+    public LiveData<List<Tarefa>> getTarefas() {
         return tarefas;
     }
 

@@ -26,9 +26,13 @@ public abstract class BancoDados extends RoomDatabase { //Ponto de acesso ao ban
 
     public static BancoDados getInstance(Context context) {
         if (instancia == null) {
-            instancia = Room.databaseBuilder(context, BancoDados.class, "banco")
-                    //.allowMainThreadQueries() //permitir que as queries rodem na thread main.
-                    .build();
+            synchronized (BancoDados.class) {
+                if (instancia == null) {
+                    instancia = Room.databaseBuilder(context, BancoDados.class, "banco")
+                            //.allowMainThreadQueries() //permitir que as queries rodem na thread main.
+                            .build();
+                }
+            }
         }
         return instancia;
     }
