@@ -1,5 +1,6 @@
 package br.com.lucasagw.mobile.rv.repositorio;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,7 +11,7 @@ import java.util.List;
 import br.com.lucasagw.mobile.rv.model.Tarefa;
 
 @Dao
-public interface TarefaDAO {
+public interface TarefaDAO { //objeto de acesso a dados. Um mapeamento de consultas SQL para funções.
 
     @Insert
     void insert(Tarefa... tarefas);
@@ -19,6 +20,6 @@ public interface TarefaDAO {
     void delete(Tarefa... tarefas);
 
     @Query("SELECT * FROM TAREFA")
-    List<Tarefa> getAll();
+    LiveData<List<Tarefa>> getAll();
 
 }

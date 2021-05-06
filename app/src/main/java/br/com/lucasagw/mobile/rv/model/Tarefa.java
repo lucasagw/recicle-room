@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Tarefa {
+public class Tarefa { //classe que descreve uma tabela de banco de dados ao trabalhar com Room
 
     @PrimaryKey(autoGenerate = true)
     private int id;

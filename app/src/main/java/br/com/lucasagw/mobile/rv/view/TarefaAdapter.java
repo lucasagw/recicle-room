@@ -1,10 +1,14 @@
 package br.com.lucasagw.mobile.rv.view;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.AsyncDifferConfig;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -12,13 +16,10 @@ import java.util.List;
 import br.com.lucasagw.mobile.rv.R;
 import br.com.lucasagw.mobile.rv.model.Tarefa;
 
-public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaHolder> {
+public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolder> {
 
-    private List<Tarefa> dados;
-    // private Context contexto; //poderia fazer assim pra usar o contexto no from.
-
-    public TarefaAdapter(List<Tarefa> dados) {
-        this.dados = dados;
+    protected TarefaAdapter(@NonNull DiffUtil.ItemCallback<Tarefa> diffCallback) {
+        super(diffCallback);
     }
 
     @NonNull
@@ -32,17 +33,10 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaHold
 
     @Override
     public void onBindViewHolder(@NonNull TarefaHolder holder, int position) {
-        holder.getTitulo().setText(dados.get(position).getTitulo()); //setando os dados na viewholder
+        holder.getTitulo().setText(getItem(position).getTitulo()); //setando os dados na viewholder
     }
 
-    @Override
-    public int getItemCount() {
-        return dados.size();
-    }
-
-
-
-    class TarefaHolder extends RecyclerView.ViewHolder{
+    class TarefaHolder extends RecyclerView.ViewHolder {
 
         private TextView titulo;
 
@@ -57,6 +51,19 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaHold
 
         public void setTitulo(TextView titulo) {
             this.titulo = titulo;
+        }
+    }
+
+    static class ContatoDiff extends DiffUtil.ItemCallback<Tarefa> {
+
+        @Override
+        public boolean areItemsTheSame(@NonNull Tarefa oldItem, @NonNull Tarefa newItem) {
+            return oldItem == newItem;
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Tarefa oldItem, @NonNull Tarefa newItem) {
+            return (oldItem.getId() == newItem.getId()) && oldItem.getTitulo().equals(newItem.getTitulo());
         }
     }
 
