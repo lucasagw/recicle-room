@@ -30,7 +30,7 @@ public class Repositorio {
 //        BancoDados.dbWriteExecutor.execute(new Runnable() {
 //            @Override
 //            public void run() {
-//                dao.insert(contato);
+//                dao.insert(tarefa);
 //            }
 //        });
     }

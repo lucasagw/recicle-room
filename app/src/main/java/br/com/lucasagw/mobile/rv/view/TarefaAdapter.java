@@ -6,12 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
 
 import br.com.lucasagw.mobile.rv.R;
 import br.com.lucasagw.mobile.rv.model.Tarefa;
@@ -19,7 +16,7 @@ import br.com.lucasagw.mobile.rv.model.Tarefa;
 public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolder> {
 
     protected TarefaAdapter(@NonNull DiffUtil.ItemCallback<Tarefa> diffCallback) {
-        super(diffCallback);
+        super(diffCallback); //diz quando será feito a atualização dos dados
     }
 
     @NonNull
@@ -34,6 +31,7 @@ public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolde
     @Override
     public void onBindViewHolder(@NonNull TarefaHolder holder, int position) {
         holder.getTitulo().setText(getItem(position).getTitulo()); //setando os dados na viewholder
+
     }
 
     class TarefaHolder extends RecyclerView.ViewHolder {
@@ -55,7 +53,7 @@ public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolde
     }
 
     static class TarefaDiff extends DiffUtil.ItemCallback<Tarefa> {
-
+        //para checar se são iguais
         @Override
         public boolean areItemsTheSame(@NonNull Tarefa oldItem, @NonNull Tarefa newItem) {
             return oldItem == newItem;
@@ -66,5 +64,4 @@ public class TarefaAdapter extends ListAdapter<Tarefa, TarefaAdapter.TarefaHolde
             return (oldItem.getId() == newItem.getId()) && oldItem.getTitulo().equals(newItem.getTitulo());
         }
     }
-
 }
