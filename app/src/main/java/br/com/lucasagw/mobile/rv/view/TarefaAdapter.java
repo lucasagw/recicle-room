@@ -1,4 +1,5 @@
 package br.com.lucasagw.mobile.rv.view;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,7 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaHold
     }
 
 
-
-    class TarefaHolder extends RecyclerView.ViewHolder{
+    class TarefaHolder extends RecyclerView.ViewHolder {
 
         private TextView titulo;
 
